@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Hostongat</title>
+    <meta name="description" content="Sign in to your Hostongat account to manage your digital services, hosting, and project requests.">
+    <meta name="theme-color" content="#132661">
+    <link rel="shortcut icon" href="media/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="component/component.css">
+</head>
+<body>
+    <main class="auth-page">
+        <header class="auth-header" aria-label="Site header">
+            <a class="auth-logo" href="index.html" aria-label="Hostongat home">
+                <img src="media/images/logo/hostongat.png" alt="Hostongat">
+            </a>
+            <a class="quote-link" href="request-a-quote.html">Request a Quote</a>
+        </header>
+
+        <section class="auth-shell" aria-labelledby="sign-in-title">
+            <div class="auth-copy">
+                <p class="auth-kicker">Client Access</p>
+                <h1>Welcome back.</h1>
+                <p>Manage hosting, review project updates, and keep every digital service moving from one calm workspace.</p>
+            </div>
+
+            <div class="auth-panel">
+                <div class="panel-heading">
+                    <h2 id="sign-in-title">Sign In</h2>
+                    <p>Use your Hostongat account details to continue.</p>
+                </div>
+
+                <form class="auth-form" action="#" method="post" id="signInForm">
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <div class="input-wrap">
+                            <span class="field-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2"/>
+                                    <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                            <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <div class="input-wrap">
+                            <span class="field-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M5 11h14v9H5v-9Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+                            <button class="toggle-password" type="button" aria-controls="password" aria-label="Show password">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label class="remember">
+                            <input type="checkbox" name="remember">
+                            <span>Remember me</span>
+                        </label>
+                        <a class="forgot-link" href="forgot-password.html">Forgot password?</a>
+                    </div>
+
+                    <button class="submit-button" type="submit">Sign In</button>
+
+                    <p class="create-account">New to Hostongat? <a href="create-account.html">Create an account</a></p>
+                    <p class="create-account" id="authMessage" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="component/component.js"></script>
+</body>
+</html>
+
+

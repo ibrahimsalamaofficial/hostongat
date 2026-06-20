@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domains | Hostongat</title>
+    <meta name="description" content="Search, compare, favourite, and choose domains with Hostongat.">
+    <meta name="keywords" content="domain search, buy domain, domain names, hosting, Hostongat">
+    <meta name="theme-color" content="#132661">
+    <link rel="shortcut icon" href="../../media/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/normalize.css">
+    <link rel="stylesheet" href="../../component/component.css">
+    <link rel="stylesheet" href="../../component/component.scss">
+    <link rel="stylesheet" href="domainsearch.css">
+    <link rel="stylesheet" href="domainsearch.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="main domain-main" id="main">
+        <header id="header">
+            <div class="header-container" id="headerContainer">
+                <div class="inside">
+                    <div class="logo">
+                        <a href="../../index.html"><img src="../../media/images/logo/hostongat.png" alt="Hostongat"></a>
+                    </div>
+
+                    <div class="side">
+                        <a href="../../sign-in.html" class="header-button">
+                            <span class="label">Sign In</span>
+                        </a>
+
+                        <div class="menu-icon" id="menu">
+                            <div class="icon">
+                                <span class="top"></span>
+                                <span class="middle"></span>
+                                <span class="bottom"></span>
+                            </div>
+                            <div class="menu">
+                                <p>Menu</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="page" id="page">
+
+            <section class="domains-hero">
+                <div class="container">
+                    <div class="domains-hero-grid">
+                        <div class="domains-copy">
+                            <p class="eyebrow">Domains</p>
+                            <h1>Find the name your customers will remember.</h1>
+                            <p>Search domain ideas, compare extensions, save favourites, and start building your online presence with privacy protection included.</p>
+                        </div>
+
+                        <div class="domain-metrics" aria-label="Domain service highlights">
+                            <div>
+                                <strong>Free</strong>
+                                <span>Privacy protection</span>
+                            </div>
+                            <div>
+                                <strong>20+</strong>
+                                <span>Popular extensions</span>
+                            </div>
+                            <div>
+                                <strong>24/7</strong>
+                                <span>Domain support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="domain-console" aria-labelledby="domain-console-title">
+                <div class="container">
+                    <div class="domain-tool">
+                        <div class="tool-top">
+                            <div>
+                                <p class="eyebrow">Domain Search</p>
+                                <h2 id="domain-console-title">Check availability instantly</h2>
+                            </div>
+                            <a class="cart-pill" href="../../bag.html" aria-live="polite">
+                                <span id="cartCount">0</span>
+                                <span>in bag</span>
+                            </a>
+                        </div>
+
+                        <form class="domain-search" id="domainSearchForm">
+                            <label class="sr-only" for="domainSearch">Search for a domain</label>
+                            <div class="search-input">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M10.8 18.6a7.8 7.8 0 1 0 0-15.6 7.8 7.8 0 0 0 0 15.6Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <path d="m16.6 16.6 4.4 4.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <input type="text" name="domain" id="domainSearch" placeholder="Find your domain now" value="hostongat.com" autocomplete="off">
+                            </div>
+                            <button type="submit">Search</button>
+                        </form>
+
+                        <div class="quick-tlds" aria-label="Popular domain extensions">
+                            <button type="button" data-extension=".com">.com</button>
+                            <button type="button" data-extension=".net">.net</button>
+                            <button type="button" data-extension=".org">.org</button>
+                            <button type="button" data-extension=".eg">.eg</button>
+                            <button type="button" data-extension=".sa">.sa</button>
+                            <button type="button" data-extension=".co">.co</button>
+                            <button type="button" data-extension=".agency">.agency</button>
+                        </div>
+
+                        <div class="domain-shortcuts" aria-label="Domain account shortcuts">
+                            <a href="favourites.html">View Favourites</a>
+                            <a href="../../bag.html">View Bag</a>
+                        </div>
+
+                        <div class="filters" role="tablist" aria-label="Domain result sections">
+                            <div class="filter selected">
+                                <button type="button" class="tab-button" role="tab" aria-selected="true" data-tab="results">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <span>Results</span>
+                                </button>
+                            </div>
+                            <div class="filter">
+                                <button type="button" class="tab-button" role="tab" aria-selected="false" data-tab="history">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <span>History</span>
+                                </button>
+                            </div>
+                            <div class="filter">
+                                <button type="button" class="tab-button" role="tab" aria-selected="false" data-tab="favourites">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.8 10.6 19.5C5.4 14.8 2 11.7 2 8a4.7 4.7 0 0 1 8.4-2.9L12 6.9l1.6-1.8A4.7 4.7 0 0 1 22 8c0 3.7-3.4 6.8-8.6 11.5L12 20.8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                                    <span>Favourites</span>
+                                </button>
+                            </div>
+                            <div class="filter">
+                                <button type="button" class="tab-button" role="tab" aria-selected="false" data-tab="filter">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                    <span>Filter</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="domain-workspace">
+                <div class="container">
+                    <div class="filter-pages">
+                        <div class="c-page true-page" id="resultsPanel" data-panel="results">
+                            <div id="primaryResult"></div>
+
+                            <div class="section-heading">
+                                <div>
+                                    <p class="eyebrow">Suggestions</p>
+                                    <h2>More domain options</h2>
+                                </div>
+                                <p>All domains include free privacy protection forever.</p>
+                            </div>
+                            <div class="domain-list" id="suggestedDomains"></div>
+                        </div>
+
+                        <div class="c-page" id="historyPanel" data-panel="history">
+                            <div class="section-heading">
+                                <div>
+                                    <p class="eyebrow">Recent Searches</p>
+                                    <h2>History</h2>
+                                </div>
+                                <button type="button" class="ghost-button" id="clearHistory">Clear History</button>
+                            </div>
+                            <div class="domain-list compact" id="historyList"></div>
+                        </div>
+
+                        <div class="c-page" id="favouritesPanel" data-panel="favourites">
+                            <div class="section-heading">
+                                <div>
+                                    <p class="eyebrow">Saved Domains</p>
+                                    <h2>Favourites</h2>
+                                </div>
+                                <p id="favouriteCount">0 saved</p>
+                            </div>
+                            <div class="domain-list compact" id="favouriteList"></div>
+                        </div>
+
+                        <div class="c-page" id="filterPanel" data-panel="filter">
+                            <div class="filter-layout">
+                                <div class="filter-card">
+                                    <p class="eyebrow">Extension Type</p>
+                                    <h2>Choose endings to compare</h2>
+                                    <div class="type-grid" id="extensionFilters">
+                                        <button type="button" class="active" data-filter-extension="all">All</button>
+                                        <button type="button" data-filter-extension=".com">.com</button>
+                                        <button type="button" data-filter-extension=".net">.net</button>
+                                        <button type="button" data-filter-extension=".org">.org</button>
+                                        <button type="button" data-filter-extension=".co">.co</button>
+                                        <button type="button" data-filter-extension=".agency">.agency</button>
+                                        <button type="button" data-filter-extension=".studio">.studio</button>
+                                        <button type="button" data-filter-extension=".store">.store</button>
+                                    </div>
+                                </div>
+
+                                <aside class="filter-card filter-summary">
+                                    <p class="eyebrow">Budget</p>
+                                    <h2>Refine results</h2>
+                                    <label for="priceRange">Maximum first-year price</label>
+                                    <input id="priceRange" type="range" min="299" max="1299" step="50" value="899">
+                                    <div class="range-value"><span id="priceValue">EGP 899</span></div>
+
+                                    <label for="lengthRange">Maximum name length</label>
+                                    <input id="lengthRange" type="range" min="5" max="24" step="1" value="18">
+                                    <div class="range-value"><span id="lengthValue">18 characters</span></div>
+
+                                    <button type="button" class="submit-filter" id="applyFilters">Apply Filter</button>
+                                </aside>
+                            </div>
+                            <div class="domain-list" id="filteredDomains"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="domain-benefits">
+                <div class="container">
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">Included</p>
+                            <h2>Everything to launch with confidence</h2>
+                        </div>
+                    </div>
+                    <div class="benefit-grid">
+                        <article>
+                            <span>01</span>
+                            <h3>Privacy protection</h3>
+                            <p>Keep personal contact details private on eligible domains at no extra cost.</p>
+                        </article>
+                        <article>
+                            <span>02</span>
+                            <h3>Simple setup</h3>
+                            <p>Connect your domain to hosting, email, or a new website without technical friction.</p>
+                        </article>
+                        <article>
+                            <span>03</span>
+                            <h3>Smart alternatives</h3>
+                            <p>Compare close matches and premium extensions when your exact name is taken.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer-request">
+                <div class="bg">
+                    <div class="img">
+                        <img src="../../media/images/bg/gradient-bg-sm-smm.png" alt="Gradient Background">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="inside">
+                        <div class="all">
+                            <div class="parent">
+                                <div class="child child-text">
+                                    <div class="content">
+                                        <div class="text">
+                                            <div class="sub-title">
+                                                <p>Take The Hostongat Road To</p>
+                                            </div>
+                                            <div class="main-h">
+                                                <h2>Digitizing Your Business Growth</h2>
+                                            </div>
+                                        </div>
+                                        <div class="follow-us">
+                                            <div class="follow">
+                                                <span>Follow Us</span>
+                                            </div>
+                                            <ul class="social-list">
+                                                <li><a href="../../request-a-quote.html"><img src="../../media/images/icons/instagram.png" alt="Instagram Icon"></a></li>
+                                                <li><a href="../../request-a-quote.html"><img src="../../media/images/icons/linked-in.png" alt="LinkedIn Icon"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="child child-form component">
+                                    <div class="form-box">
+                                        <div class="top">
+                                            <h3>Start A Conversation With Us</h3>
+                                        </div>
+                                        <form class="form" action="../../mail-work-php/form-request-aquot/mail.php" method="post">
+                                            <div class="input">
+                                                <div class="icon">
+                                                    <img src="../../media/images/icons/user.png" alt="User Icon" width="25" height="25">
+                                                </div>
+                                                <input type="text" name="name" placeholder="Name*" required>
+                                            </div>
+                                            <div class="input">
+                                                <div class="icon">
+                                                    <img src="../../media/images/icons/bag.png" alt="Company Icon" width="25" height="25">
+                                                </div>
+                                                <input type="text" name="company" placeholder="Company Name*" required>
+                                            </div>
+                                            <div class="input">
+                                                <div class="icon">
+                                                    <img src="../../media/images/icons/email.png" alt="Email Icon" width="25" height="25">
+                                                </div>
+                                                <input type="email" name="email" placeholder="Email*" required>
+                                            </div>
+                                            <div class="input">
+                                                <div class="icon">
+                                                    <img src="../../media/images/icons/iphone.png" alt="Phone Icon" width="25" height="25">
+                                                </div>
+                                                <input type="tel" name="phone" placeholder="Phone*" required>
+                                            </div>
+                                            <div class="input textarea">
+                                                <div class="icon">
+                                                    <img src="../../media/images/icons/message.png" alt="Message Icon" width="25" height="25">
+                                                </div>
+                                                <textarea name="message" rows="0" cols="0" placeholder="Your Message*" required></textarea>
+                                            </div>
+                                            <div class="button submit">
+                                                <button type="submit">
+                                                    <span>Submit</span>
+                                                    <svg width="12" height="12" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10,0 L90,50 L10,100 L40,50 Z" fill="currentcolor"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </form>
+                                        <div class="top top-mobile">
+                                            <div class="follow-us">
+                                                <div class="follow">
+                                                    <span>Follow Us</span>
+                                                </div>
+                                                <ul class="social-list">
+                                                    <li><a href="../../request-a-quote.html"><img src="../../media/images/icons/instagram.png" alt="Instagram Icon"></a></li>
+                                                    <li><a href="../../request-a-quote.html"><img src="../../media/images/icons/linked-in.png" alt="LinkedIn Icon"></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="container">
+                    <div class="inside">
+                        <div class="footer-break">
+                            <a href="../../index.html"><img src="../../media/images/logo/white.svg" alt="Hostongat"></a>
+                        </div>
+                        <div class="office">
+                            <div class="office-item">
+                                <div class="city-abbreviation"><span>EG</span></div>
+                                <div class="details">
+                                    <div class="city"><span>Egypt</span></div>
+                                    <div class="location"><a href="https://maps.app.goo.gl/ig9BtpEBd1YoZGqr5" target="_blank">Egypt, Cairo,<br> Abbas Elakkad.</a></div>
+                                    <div class="mobile"><a href="tel:+201021729068">+20 10 2172 9068</a></div>
+                                </div>
+                            </div>
+
+                            <div class="office-item">
+                                <div class="city-abbreviation"><span>SA</span></div>
+                                <div class="details">
+                                    <div class="city"><span>Saudi Arabia</span></div>
+                                    <div class="location"><a href="https://maps.app.goo.gl/1WF11RPghhgj64yJ9" target="_blank">Saudi Arabia, Riyadh,<br> Malaz Dist.</a></div>
+                                    <div class="mobile"><a href="tel:+966536998115">+966 53 699 8115</a></div>
+                                </div>
+                            </div>
+
+                            <div class="office-item">
+                                <div class="city-abbreviation"><span>CH</span></div>
+                                <div class="details">
+                                    <div class="city"><span>China</span></div>
+                                    <div class="location"><a href="https://maps.app.goo.gl/jxavUEvJHJcmkM9Y8" target="_blank">China, Guangzhou,<br> Yuexiu District.</a></div>
+                                    <div class="mobile"><a href="tel:+8613144405836">+86 131 4440 5836</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copy-privacy">
+                            <div class="footer-col copyright">2026 Hostongat. All rights reserved</div>
+                            <div class="footer-col copyright">UN No: 7050336176</div>
+                            <div class="footer-col privacy-button"><a href="../../request-a-quote.html">Privacy Policy</a></div>
+                            <div class="footer-col privacy-button"><a href="../../request-a-quote.html">Manage Your Consent</a></div>
+                            <div class="footer-col privacy-button"><a href="../../request-a-quote.html">Accessibility</a></div>
+                            <div class="footer-col privacy-button"><a href="tel:+966536998115">Call us at +966 53 699 8115</a></div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <nav>
+            <div class="parent">
+                <div class="main-ul">
+                    <div class="main-li has-dropmenu" id="hasDropmenu">
+                        <div class="line menu-name">
+                            <p class="li-name">Services</p>
+                            <div class="arrow">
+                                <span class="left"></span>
+                                <span class="right"></span>
+                            </div>
+                        </div>
+                        <div class="dropmenu">
+                            <div class="inside-ul">
+                                <div class="top-a">
+                                    <a href="../../request-a-quote.html">View All Services</a>
+                                </div>
+                                <div class="uls">
+                                    <div class="small-ul">
+                                        <h4>Branding</h4>
+                                        <a href="../../branding/branding-services.html" class="small-li">Branding Services</a>
+                                        <a href="../../branding/logo.html" class="small-li">Logo Design</a>
+                                        <a href="../../branding/brand-identity.html" class="small-li">Brand Identity</a>
+                                        <a href="../../branding/graphic-design.html" class="small-li">Graphic Design</a>
+                                        <a href="../../branding/brand-marketing.html" class="small-li">Brand Marketing</a>
+                                    </div>
+                                    <div class="small-ul">
+                                        <h4>Web Design</h4>
+                                        <a href="../../web-design/custom.html" class="small-li">Custom Website Design</a>
+                                        <a href="../../web-design/shopify.html" class="small-li">Shopify Website Design</a>
+                                        <a href="../../web-design/wordpress.html" class="small-li">Wordpress Web Design</a>
+                                        <a href="../../web-design/magento.html" class="small-li">Magento Web Design</a>
+                                        <a href="../../web-design/ecommerce.html" class="small-li">eCommerce Web Design</a>
+                                    </div>
+                                    <div class="small-ul">
+                                        <h4>Marketing</h4>
+                                        <a href="../../marketing/ims.html" class="small-li">Integrated Marketing Services</a>
+                                        <a href="../../marketing/seo.html" class="small-li">Search Engine Optimization</a>
+                                        <a href="../../marketing/smm.html" class="small-li">Social Media Marketing</a>
+                                        <a href="../../marketing/cs.html" class="small-li">Consulting Services</a>
+                                    </div>
+                                    <div class="small-ul">
+                                        <h4>Hosting</h4>
+                                        <a href="domainsearch.html" class="small-li">Domains</a>
+                                        <a href="../host/hosting.html" class="small-li">All Hosting Options</a>
+                                        <a href="../email/email.html" class="small-li">Emails</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-li"><div class="line"><a href="../../request-a-quote.html" class="li-name">Work By Industry</a></div></div>
+                    <div class="main-li"><div class="line"><a href="../../request-a-quote.html" class="li-name">Digital Trends</a></div></div>
+                    <div class="main-li"><div class="line"><a href="../../about.html" class="li-name">About</a></div></div>
+                    <div class="main-li"><div class="line"><a href="../../contact.html" class="li-name">Contact</a></div></div>
+                    <div class="main-button">
+                        <a href="../../request-a-quote.html" class="button-5"><p>Request a Quote</p></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </main>
+
+    <div class="action-modal" id="actionModal" hidden>
+        <div class="modal-backdrop" data-modal-cancel></div>
+        <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalText">
+            <h2 id="modalTitle">Confirm action</h2>
+            <p id="modalText">Please confirm this action.</p>
+            <div class="modal-actions">
+                <button type="button" class="modal-cancel" data-modal-cancel>Cancel</button>
+                <button type="button" class="modal-accept" id="modalAccept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../component/component.js"></script>
+</body>
+</html>

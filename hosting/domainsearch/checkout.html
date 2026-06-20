@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Hostongat</title>
+    <meta name="description" content="Checkout for Hostongat domains, hosting, and email products.">
+    <meta name="theme-color" content="#132661">
+    <link rel="shortcut icon" href="../../media/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/normalize.css">
+    <link rel="stylesheet" href="../../component/component.css">
+    <link rel="stylesheet" href="domainsearch.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="main domain-main" id="main">
+        <header id="header">
+            <div class="header-container" id="headerContainer">
+                <div class="inside">
+                    <div class="logo"><a href="../../index.html"><img src="../../media/images/logo/hostongat.png" alt="Hostongat"></a></div>
+                    <div class="side">
+                        <a href="../../sign-in.html" class="header-button"><span class="label">Sign In</span></a>
+                        <div class="menu-icon" id="menu"><div class="icon"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div><div class="menu"><p>Menu</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="page" id="page">
+            <section class="saved-page">
+                <div class="container">
+                    <div class="saved-header">
+                        <div>
+                            <p class="eyebrow">Checkout</p>
+                            <h1>Complete your purchase.</h1>
+                            <p>Enter the buyer details for your domains, hosting, and email setup. This checkout stores the order locally for the static website flow.</p>
+                        </div>
+                        <div class="saved-actions">
+                            <a href="bag.html">Back To Bag</a>
+                        </div>
+                    </div>
+
+                    <div class="checkout-layout">
+                        <form class="checkout-form" id="checkoutForm">
+                            <div class="checkout-section">
+                                <p class="eyebrow">Buyer Details</p>
+                                <h2>Contact information</h2>
+                                <div class="checkout-fields">
+                                    <label>Full name<input type="text" name="name" autocomplete="name" required></label>
+                                    <label>Email address<input type="email" name="email" autocomplete="email" required></label>
+                                    <label>Phone number<input type="tel" name="phone" autocomplete="tel" required></label>
+                                    <label>Company name<input type="text" name="company" autocomplete="organization" required></label>
+                                </div>
+                            </div>
+
+                            <div class="checkout-section">
+                                <p class="eyebrow">Payment</p>
+                                <h2>Payment method</h2>
+                                <div class="payment-options">
+                                    <label><input type="radio" name="payment" value="card" checked> Card payment</label>
+                                    <label><input type="radio" name="payment" value="bank"> Bank transfer</label>
+                                    <label><input type="radio" name="payment" value="support"> Pay with sales support</label>
+                                </div>
+                                <label class="terms"><input type="checkbox" required> I confirm the selected products and buyer details are correct.</label>
+                            </div>
+
+                            <button type="submit" class="checkout-button">Place Order</button>
+                        </form>
+
+                        <aside class="checkout-panel">
+                            <p class="eyebrow">Order</p>
+                            <h2>Order summary</h2>
+                            <div class="summary-lines" id="summaryLines"></div>
+                            <div class="summary-total">
+                                <span>Total today</span>
+                                <strong id="summaryTotal">EGP 0</strong>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../../component/component.js"></script>
+</body>
+</html>
+

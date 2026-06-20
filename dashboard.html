@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Hostongat</title>
+    <meta name="description" content="Hostongat client dashboard for services, orders, domains, hosting, and email products.">
+    <meta name="theme-color" content="#132661">
+    <link rel="shortcut icon" href="media/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="component/component.css">
+</head>
+<body>
+    <div class="dashboard-shell">
+        <aside class="sidebar">
+            <a class="logo" href="index.html"><img src="media/images/logo/hostongat.png" alt="Hostongat"></a>
+            <div class="profile-card">
+                <strong id="profileName">Hostongat Client</strong>
+                <span id="profileEmail">client@example.com</span>
+            </div>
+            <nav class="side-nav" aria-label="Dashboard">
+                <a class="active" href="#overview">Overview</a>
+                <a href="#services">Services</a>
+                <a href="#orders">Orders</a>
+                <a href="#support">Support</a>
+                <button type="button" id="signOut">Sign Out</button>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <section class="topbar" id="overview">
+                <div>
+                    <p class="eyebrow">Client Dashboard</p>
+                    <h1>Control your services.</h1>
+                    <p>Review purchased domains, hosting, and emails, manage renewal preferences, inspect orders, and open support requests.</p>
+                </div>
+                <div class="quick-actions">
+                    <a href="hosting/domainsearch/domainsearch.html">Buy Domain</a>
+                    <a href="hosting/host/hosting.html">Buy Hosting</a>
+                    <a href="hosting/email/email.html">Buy Email</a>
+                </div>
+            </section>
+
+            <section class="stats" aria-label="Account summary">
+                <div class="stat"><span>Active Services</span><strong id="activeCount">0</strong></div>
+                <div class="stat"><span>Domains</span><strong id="domainCount">0</strong></div>
+                <div class="stat"><span>Open Orders</span><strong id="orderCount">0</strong></div>
+                <div class="stat"><span>Tickets</span><strong id="ticketCount">0</strong></div>
+            </section>
+
+            <div class="dashboard-grid">
+                <div>
+                    <section class="panel" id="services">
+                        <div class="panel-head">
+                            <h2>Services</h2>
+                            <button class="ghost-button" id="activateDemo" style="display: none;">Add Demo Services</button>
+                        </div>
+                        <div class="service-list" id="serviceList"></div>
+                    </section>
+
+                    <section class="panel" id="orders">
+                        <div class="panel-head"><h2>Orders</h2></div>
+                        <div class="order-list" id="orderList"></div>
+                    </section>
+                </div>
+
+                <aside>
+                    <section class="panel">
+                        <div class="panel-head"><h2>Profile</h2></div>
+                        <form class="form-grid" id="profileForm">
+                            <label>Name<input id="nameInput" name="name" required></label>
+                            <label>Company<input id="companyInput" name="company"></label>
+                            <button class="primary-button" type="submit">Save Profile</button>
+                            <p class="notice" id="profileNotice" aria-live="polite"></p>
+                        </form>
+                    </section>
+
+                    <section class="panel" id="support">
+                        <div class="panel-head"><h2>Support</h2></div>
+                        <form class="form-grid" id="ticketForm">
+                            <label>Subject<input name="subject" placeholder="What do you need help with?" required></label>
+                            <label>Message<textarea name="message" placeholder="Share the details" required></textarea></label>
+                            <button class="primary-button" type="submit">Open Ticket</button>
+                            <p class="notice" id="ticketNotice" aria-live="polite"></p>
+                        </form>
+                    </section>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <script src="component/component.js"></script>
+</body>
+</html>
+
+
