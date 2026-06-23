@@ -1,4 +1,4 @@
-// Header, nav, account, favourites, and bag actions
+// Header, nav, account, and bag actions
 document.addEventListener('DOMContentLoaded', () => {
   const pathPrefix = getPathPrefix();
   normalizeHeader(pathPrefix);
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const signLink = header.querySelector('.header-button[href*="sign-in"]');
   const url = (path) => `${pathPrefix}${path}`;
   const session = readHeaderObject('hostongatSession');
+  const isSignedIn = Boolean(session?.email);
 
   const target = header.querySelector('.side') || header;
   let actions = target.querySelector('.header-actions');
@@ -27,21 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   actions.innerHTML = `
-    <a class="header-icon-link" href="${url('hosting/domainsearch/favourites.html')}" aria-label="Favourites">
-      ${headerIcon('heart')}
-      <span class="header-count" data-header-count="favourites">0</span>
-    </a>
     <a class="header-icon-link" href="${url('bag.html')}" aria-label="Bag">
       ${headerIcon('bag')}
       <span class="header-count" data-header-count="bag">0</span>
     </a>
-    <a class="header-icon-link header-profile-link" href="${url('dashboard.html')}" aria-label="Dashboard">
+    <a class="header-icon-link header-profile-link" href="${url('dashboard.html')}" aria-label="Dashboard"${isSignedIn ? '' : ' hidden'}>
       ${headerIcon('user')}
     </a>
   `;
 
   const profileLink = actions.querySelector('.header-profile-link');
-  if (session?.email) {
+  if (isSignedIn) {
     signLink?.classList.add('is-hidden');
     profileLink.hidden = false;
   } else {
@@ -264,24 +261,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateHeaderCounts(scope) {
-    const favouritesCount = readHeaderList('hostongatDomainFavourites').length;
     const bagCount = readHeaderList('hostongatDomainBag').length + readHeaderList('hostongatHostingBag').length + readHeaderList('hostongatEmailBag').length;
-    const favouritesBadge = scope.querySelector('[data-header-count="favourites"]');
     const bagBadge = scope.querySelector('[data-header-count="bag"]');
-    if (favouritesBadge) favouritesBadge.textContent = favouritesCount;
     if (bagBadge) bagBadge.textContent = bagCount;
   }
 
   function headerIcon(name) {
     const icons = {
-      heart: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.8 5.6c-1.7-2-4.8-1.9-6.5.2L12 8.4 9.7 5.8C8 3.7 4.9 3.6 3.2 5.6 1.4 7.7 1.7 10.9 4 13l8 7 8-7c2.3-2.1 2.6-5.3.8-7.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>',
       bag: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 8h12l1 13H5L6 8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8a3 3 0 0 1 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
       user: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/><path d="M4 21a8 8 0 0 1 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
     };
     return icons[name] || '';
   }
 });
-
 
 /* Inside Pages Slider Landing*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -351,7 +343,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlide(currentIndex);
 });
 
-
 /*FAQs & Scope*/
 const accordionButtons = document.querySelectorAll('.scope .parent-accordion .item .title button');
 accordionButtons.forEach(button => {
@@ -375,7 +366,6 @@ accordionButtons.forEach(button => {
         arrow.classList.toggle('active');
     });
 });
-
 
 /*Difference*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -405,7 +395,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
 
 /*Recommendations*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -556,7 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-
 /*Services*/
 const items = document.querySelectorAll('section.services .items .item');
 items.forEach(item => {
@@ -565,7 +553,6 @@ items.forEach(item => {
     item.classList.add('is-active');
   });
 });
-
 
 /*Our Difference*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -639,7 +626,6 @@ document.addEventListener('DOMContentLoaded', () => {
     leftArrow.addEventListener('click', prevSlide);
   });
 });
-
 
 /*Industry*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -780,8 +766,6 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelectorAll('.hero .column').forEach(col => {
     col.innerHTML += col.innerHTML;
 });
-
-
 
 
 // Toggle Favourite
@@ -1255,7 +1239,6 @@ const tldPrices = {
         const favouriteList = document.getElementById("favouriteList");
         const filteredDomains = document.getElementById("filteredDomains");
         const favouriteCount = document.getElementById("favouriteCount");
-        const cartCount = document.getElementById("cartCount");
         const priceRange = document.getElementById("priceRange");
         const priceValue = document.getElementById("priceValue");
         const lengthRange = document.getElementById("lengthRange");
@@ -1373,37 +1356,42 @@ const tldPrices = {
             const available = item.status !== "taken";
             const fav = favourites.has(item.domain);
             const inCart = cart.has(item.domain);
-            const badge = available ? (options.primary ? "Exact match" : "Available") : "Taken";
-            const action = available ? (inCart ? "In Bag" : "Add To Bag") : "Watch Domain";
+            const action = available ? (inCart ? "In Bag" : "Buy now") : "Watch Domain";
+            const save = Math.round(((item.old - item.price) / item.old) * 100);
 
             return `
                 <article class="domain-card ${options.primary ? "primary-card" : ""} ${available ? "available" : "taken"}" data-domain="${item.domain}">
-                    <button type="button" class="favourite-button ${fav ? "added" : ""}" data-favourite="${item.domain}" aria-label="Save ${item.domain}">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.8 10.6 19.5C5.4 14.8 2 11.7 2 8a4.7 4.7 0 0 1 8.4-2.9L12 6.9l1.6-1.8A4.7 4.7 0 0 1 22 8c0 3.7-3.4 6.8-8.6 11.5L12 20.8Z"/></svg>
-                    </button>
-                    <div class="domain-status">
-                        <span>${badge}</span>
+                    <div class="domain-row-main">
+                        <div class="domain-name-row">
+                        <button type="button" class="favourite-button ${fav ? "added" : ""}" data-favourite="${item.domain}" aria-label="Save ${item.domain}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.8 10.6 19.5C5.4 14.8 2 11.7 2 8a4.7 4.7 0 0 1 8.4-2.9L12 6.9l1.6-1.8A4.7 4.7 0 0 1 22 8c0 3.7-3.4 6.8-8.6 11.5L12 20.8Z"/></svg>
+                        </button>
+                            <h3>${item.domain}</h3>
+                            <span class="domain-save">SAVE ${save}%</span>
+                        </div>
+                        ${available ? "" : "<p class=\"domain-note\">This name is registered. Try a close alternative or watch it.</p>"}
                     </div>
-                    <div class="domain-name-row">
-                        <h3>${item.domain}</h3>
-                        ${available ? "<span class=\"status-dot\"></span>" : "<span class=\"blocked-dot\"></span>"}
-                    </div>
-                    <p class="domain-note">${available ? "Includes free Privacy Protection forever." : "This name is registered. Try a close alternative or watch it."}</p>
-                    <div class="domain-price">
-                        <del>EGP ${item.old}</del>
-                        <strong>EGP ${item.price}</strong>
-                        <span>first year</span>
-                        <div class="tooltip">
-                            <button type="button" aria-label="Pricing details">?</button>
-                            <div class="hidden-box">
-                                <div class="box">
-                                    <h4>Pricing</h4>
-                                    <p>Lower first-year pricing helps you get online. Renewal uses the standard yearly price plus applicable fees.</p>
+                    <div class="domain-buy-row">
+                        <div class="domain-price">
+                            <div>
+                                <del>EGP ${item.old}</del>
+                                <strong>EGP ${item.price}/1st yr</strong>
+                            </div>
+                            <div class="domain-term">
+                                <span>For first year</span>
+                                <div class="tooltip">
+                                    <button type="button" aria-label="Pricing details">i</button>
+                                    <div class="hidden-box">
+                                        <div class="box">
+                                            <h4>Pricing</h4>
+                                            <p>Lower first-year pricing helps you get online. Renewal uses the standard yearly price plus applicable fees.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        ${available ? `<button type="button" class="domain-action ${inCart ? "added" : ""}" data-cart="${item.domain}">${action}</button>` : `<button type="button" class="domain-action watch-action" data-watch="${item.domain}">${action}</button>`}
                     </div>
-                    ${available ? `<button type="button" class="domain-action ${inCart ? "added" : ""}" data-cart="${item.domain}">${action}</button>` : `<button type="button" class="domain-action watch-action" data-watch="${item.domain}">${action}</button>`}
                 </article>
             `;
         }
@@ -1482,7 +1470,7 @@ const tldPrices = {
                     const removing = favourites.has(domain);
                     confirmAction(
                         removing ? "Remove favourite?" : "Add to favourites?",
-                        removing ? `${domain} will be removed from your saved domains.` : `${domain} will be saved to your favourites page.`,
+                        removing ? `${domain} will be removed from your saved domains.` : `${domain} will be saved to your favourites tab.`,
                         () => {
                             removing ? favourites.delete(domain) : favourites.add(domain);
                             writeList(storageKeys.favourites, favourites);
@@ -1524,10 +1512,11 @@ const tldPrices = {
             renderResults(currentQuery);
             renderHistory();
             renderFavourites();
-            cartCount.textContent = cart.size;
         }
 
         function showTab(tabName) {
+            if (!document.querySelector(`[data-tab="${tabName}"]`)) return;
+
             document.querySelectorAll(".tab-button").forEach(button => {
                 const selected = button.dataset.tab === tabName;
                 button.setAttribute("aria-selected", selected);
@@ -1599,145 +1588,11 @@ const tldPrices = {
             writeList(storageKeys.history, history);
         }
         renderAll();
+        showTab(window.location.hash.replace("#", "") || "results");
 
-});
-
-/* domain favourites page */
-document.addEventListener('DOMContentLoaded', () => {
-    if (!document.getElementById("favouriteList")) return;
-const list = document.getElementById("favouriteList");
-        const savedCount = document.getElementById("savedCount");
-        const modal = document.getElementById("actionModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalText = document.getElementById("modalText");
-        const modalAccept = document.getElementById("modalAccept");
-        const storageKeys = {
-            favourites: "hostongatDomainFavourites",
-            bag: "hostongatDomainBag"
-        };
-        const tldPrices = {
-            ".com": { old: 1099, price: 599 },
-            ".net": { old: 999, price: 549 },
-            ".org": { old: 949, price: 499 },
-            ".co": { old: 1199, price: 799 },
-            ".agency": { old: 1299, price: 899 },
-            ".studio": { old: 1199, price: 749 },
-            ".store": { old: 999, price: 399 },
-            ".online": { old: 899, price: 349 }
-        };
-        const takenDomains = new Set(["hostongat.com", "google.com", "iso.com", "digital.com", "example.com"]);
-        let favourites = new Set(readList(storageKeys.favourites, []));
-        let bag = new Set(readList(storageKeys.bag, []));
-
-        function readList(key, fallback = []) {
-            try {
-                const value = JSON.parse(localStorage.getItem(key));
-                return Array.isArray(value) ? value : fallback;
-            } catch {
-                return fallback;
-            }
-        }
-
-        function writeList(key, value) {
-            localStorage.setItem(key, JSON.stringify([...value]));
-        }
-
-        function splitDomain(domain) {
-            const parts = domain.split(".");
-            const extension = `.${parts.pop() || "com"}`;
-            const name = parts.join("") || "brand";
-            return { name, extension };
-        }
-
-        function priceFor(domain) {
-            return tldPrices[splitDomain(domain).extension] || { old: 999, price: 599 };
-        }
-
-        function confirmAction(title, text, onAccept) {
-            modalTitle.textContent = title;
-            modalText.textContent = text;
-            modal.hidden = false;
-            document.body.classList.add("modal-open");
-            modalAccept.focus();
-            const accept = () => { cleanup(); onAccept(); };
-            const cancel = () => cleanup();
-            const onKey = event => { if (event.key === "Escape") cancel(); };
-            const cleanup = () => {
-                modal.hidden = true;
-                document.body.classList.remove("modal-open");
-                modalAccept.removeEventListener("click", accept);
-                document.querySelectorAll("[data-modal-cancel]").forEach(button => button.removeEventListener("click", cancel));
-                document.removeEventListener("keydown", onKey);
-            };
-            modalAccept.addEventListener("click", accept);
-            document.querySelectorAll("[data-modal-cancel]").forEach(button => button.addEventListener("click", cancel));
-            document.addEventListener("keydown", onKey);
-        }
-
-        function card(domain) {
-            const prices = priceFor(domain);
-            const available = !takenDomains.has(domain);
-            const inBag = bag.has(domain);
-            return `
-                <article class="domain-card ${available ? "available" : "taken"}" data-domain="${domain}">
-                    <button type="button" class="favourite-button added" data-remove-favourite="${domain}" aria-label="Remove ${domain}">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.8 10.6 19.5C5.4 14.8 2 11.7 2 8a4.7 4.7 0 0 1 8.4-2.9L12 6.9l1.6-1.8A4.7 4.7 0 0 1 22 8c0 3.7-3.4 6.8-8.6 11.5L12 20.8Z"/></svg>
-                    </button>
-                    <div>
-                        <div class="domain-status"><span>${available ? "Saved" : "Taken"}</span></div>
-                        <div class="domain-name-row"><h3>${domain}</h3>${available ? "<span class=\"status-dot\"></span>" : "<span class=\"blocked-dot\"></span>"}</div>
-                        <p class="domain-note">${available ? "Ready to add to your bag with privacy protection included." : "This domain is taken, but you can keep it saved."}</p>
-                        <div class="domain-price"><del>EGP ${prices.old}</del><strong>EGP ${prices.price}</strong><span>first year</span></div>
-                    </div>
-                    ${available ? `<button type="button" class="domain-action ${inBag ? "added" : ""}" data-cart="${domain}">${inBag ? "In Bag" : "Add To Bag"}</button>` : `<button type="button" class="domain-action watch-action" data-remove-favourite="${domain}">Remove</button>`}
-                </article>
-            `;
-        }
-
-        function render() {
-            const domains = [...favourites];
-            savedCount.textContent = `${domains.length} saved`;
-            if (!domains.length) {
-                list.innerHTML = `<div class="empty-state"><h3>No favourites saved</h3><p>Search for domains and use the heart button to build your shortlist.</p></div>`;
-                return;
-            }
-            list.innerHTML = domains.map(card).join("");
-            bindActions();
-        }
-
-        function bindActions() {
-            document.querySelectorAll("[data-remove-favourite]").forEach(button => {
-                button.onclick = () => {
-                    const domain = button.dataset.removeFavourite;
-                    confirmAction("Remove favourite?", `${domain} will be removed from your favourites.`, () => {
-                        favourites.delete(domain);
-                        writeList(storageKeys.favourites, favourites);
-                        render();
-                    });
-                };
-            });
-            document.querySelectorAll("[data-cart]").forEach(button => {
-                button.onclick = () => {
-                    const domain = button.dataset.cart;
-                    const removing = bag.has(domain);
-                    confirmAction(removing ? "Remove from bag?" : "Add to bag?", removing ? `${domain} will be removed from your bag.` : `${domain} will be added to your bag.`, () => {
-                        removing ? bag.delete(domain) : bag.add(domain);
-                        writeList(storageKeys.bag, bag);
-                        render();
-                    });
-                };
-            });
-        }
-
-        document.getElementById("clearFavourites").addEventListener("click", () => {
-            confirmAction("Clear all favourites?", "Every saved domain will be removed from your favourites page.", () => {
-                favourites.clear();
-                writeList(storageKeys.favourites, favourites);
-                render();
-            });
+        window.addEventListener("hashchange", () => {
+            showTab(window.location.hash.replace("#", "") || "results");
         });
-
-        render();
 
 });
 
@@ -2179,4 +2034,3 @@ const emailCatalog = {
         });
 
 });
-

@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../../media/images/logo/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../../assets/normalize.css">
     <link rel="stylesheet" href="../../component/component.css">
-    <link rel="stylesheet" href="../../component/component.scss">
+    <!-- <link rel="stylesheet" href="../../component/component.scss"> -->
     <link rel="stylesheet" href="domainsearch.css">
     <link rel="stylesheet" href="domainsearch.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +19,14 @@
 </head>
 <body>
     <main class="main domain-main" id="main">
-        <header id="header">
+        <header id="header" class="white-header">
             <div class="header-container" id="headerContainer">
                 <div class="inside">
                     <div class="logo">
-                        <a href="../../index.html"><img src="../../media/images/logo/hostongat.png" alt="Hostongat"></a>
+                        <a href="../../index.html">
+                            <img src="../../media/images/logo/hostongat.png" alt="Hostongat" class="white">
+                            <img src="../../media/images/logo/hostongat-black.png" alt="Hostongat" class="black">
+                        </a>
                     </div>
 
                     <div class="side">
@@ -48,47 +51,9 @@
 
         <div class="page" id="page">
 
-            <section class="domains-hero">
-                <div class="container">
-                    <div class="domains-hero-grid">
-                        <div class="domains-copy">
-                            <p class="eyebrow">Domains</p>
-                            <h1>Find the name your customers will remember.</h1>
-                            <p>Search domain ideas, compare extensions, save favourites, and start building your online presence with privacy protection included.</p>
-                        </div>
-
-                        <div class="domain-metrics" aria-label="Domain service highlights">
-                            <div>
-                                <strong>Free</strong>
-                                <span>Privacy protection</span>
-                            </div>
-                            <div>
-                                <strong>20+</strong>
-                                <span>Popular extensions</span>
-                            </div>
-                            <div>
-                                <strong>24/7</strong>
-                                <span>Domain support</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="domain-console" aria-labelledby="domain-console-title">
+            <section class="domain-console">
                 <div class="container">
                     <div class="domain-tool">
-                        <div class="tool-top">
-                            <div>
-                                <p class="eyebrow">Domain Search</p>
-                                <h2 id="domain-console-title">Check availability instantly</h2>
-                            </div>
-                            <a class="cart-pill" href="../../bag.html" aria-live="polite">
-                                <span id="cartCount">0</span>
-                                <span>in bag</span>
-                            </a>
-                        </div>
-
                         <form class="domain-search" id="domainSearchForm">
                             <label class="sr-only" for="domainSearch">Search for a domain</label>
                             <div class="search-input">
@@ -105,15 +70,11 @@
                             <button type="button" data-extension=".com">.com</button>
                             <button type="button" data-extension=".net">.net</button>
                             <button type="button" data-extension=".org">.org</button>
+                            <button type="button" data-extension=".app">.app</button>
                             <button type="button" data-extension=".eg">.eg</button>
                             <button type="button" data-extension=".sa">.sa</button>
                             <button type="button" data-extension=".co">.co</button>
                             <button type="button" data-extension=".agency">.agency</button>
-                        </div>
-
-                        <div class="domain-shortcuts" aria-label="Domain account shortcuts">
-                            <a href="favourites.html">View Favourites</a>
-                            <a href="../../bag.html">View Bag</a>
                         </div>
 
                         <div class="filters" role="tablist" aria-label="Domain result sections">
@@ -390,6 +351,7 @@
                     </div>
                 </div>
             </footer>
+
         </div>
 
         <nav>

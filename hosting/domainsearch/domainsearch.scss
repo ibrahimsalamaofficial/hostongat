@@ -115,7 +115,6 @@
     color: #ffffff;
 }
 
-.tool-top,
 .section-heading {
     display: flex;
     align-items: flex-end;
@@ -123,7 +122,6 @@
     gap: 20px;
 }
 
-.tool-top h2,
 .section-heading h2,
 .filter-card h2 {
     margin: 0;
@@ -131,25 +129,6 @@
     font-size: clamp(26px, 4vw, 40px);
     line-height: 1.05;
     letter-spacing: 0;
-}
-
-.cart-pill {
-    min-width: 106px;
-    min-height: 46px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.cart-pill span:first-child {
-    color: #04e4ff;
 }
 
 .domain-search {
@@ -239,34 +218,6 @@
     outline: none;
 }
 
-.domain-shortcuts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 14px;
-}
-
-.domain-shortcuts a {
-    min-height: 38px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 13px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 800;
-}
-
-.domain-shortcuts a:hover,
-.domain-shortcuts a:focus-visible {
-    border-color: #04e4ff;
-    background: rgba(4, 228, 255, 0.14);
-    outline: none;
-}
-
 .filters {
     display: flex;
     align-items: center;
@@ -339,11 +290,15 @@
 
 .domain-list {
     display: grid;
-    gap: 14px;
+    gap: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    background: transparent;
 }
 
 .domain-list.compact {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .domain-card {
@@ -351,113 +306,112 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    gap: 18px;
-    min-height: 132px;
-    padding: 22px 22px 22px 74px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
+    gap: 30px;
+    min-height: 100px;
+    padding: 20px 26px 20px 22px;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 0;
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
     backdrop-filter: blur(14px);
 }
 
 .primary-card {
-    min-height: 220px;
-    grid-template-columns: minmax(0, 1fr) minmax(230px, auto);
-    padding: clamp(28px, 5vw, 46px);
-    padding-left: clamp(78px, 8vw, 92px);
+    min-height: 100px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 20px 26px 20px 22px;
     background:
         linear-gradient(135deg, rgba(0, 156, 255, 0.2), rgba(149, 54, 229, 0.22)),
         rgba(255, 255, 255, 0.09);
 }
 
-.domain-status span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 28px;
-    padding: 0 9px;
-    border-radius: 5px;
-    background: #ffeea9;
-    color: #111111;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-}
-
-.domain-card.taken .domain-status span {
-    background: #d7ddeb;
-    color: #24304b;
+.domain-row-main {
+    min-width: 0;
 }
 
 .domain-name-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 12px;
+    min-width: 0;
+    margin: 0;
 }
 
 .domain-name-row h3 {
     margin: 0;
     overflow-wrap: anywhere;
     color: #ffffff;
-    font-size: clamp(25px, 4vw, 44px);
-    line-height: 1.05;
+    font-size: clamp(23px, 2vw, 26px);
+    line-height: 1.1;
     letter-spacing: 0;
+    font-weight: 900;
 }
 
 .domain-list.compact .domain-name-row h3,
 .domain-list .domain-card:not(.primary-card) .domain-name-row h3 {
-    font-size: clamp(22px, 3vw, 31px);
+    font-size: clamp(23px, 2vw, 26px);
 }
 
-.status-dot,
-.blocked-dot {
-    flex: 0 0 13px;
-    width: 13px;
-    height: 13px;
-    border-radius: 999px;
-}
-
-.status-dot {
-    background: #04e4ff;
-    box-shadow: 0 0 0 5px rgba(4, 228, 255, 0.12);
-}
-
-.blocked-dot {
-    background: #cfd5e4;
+.domain-save {
+    display: inline-flex;
+    align-items: center;
+    min-height: 25px;
+    padding: 0 11px;
+    border-radius: 9px;
+    background: #ffeea9;
+    color: #111111;
+    font-size: 14px;
+    font-weight: 900;
+    white-space: nowrap;
 }
 
 .domain-note {
     max-width: 560px;
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     color: rgba(255, 255, 255, 0.72);
     font-size: 15px;
     line-height: 1.6;
 }
 
-.domain-price {
+.domain-buy-row {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 18px;
+    gap: 38px;
+}
+
+.domain-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    min-width: 210px;
+    margin-top: 0;
+    text-align: right;
 }
 
 .domain-price del {
+    margin-right: 8px;
     color: rgba(255, 255, 255, 0.58);
+    font-size: 16px;
     font-weight: 800;
 }
 
 .domain-price strong {
     color: #ffffff;
-    font-size: 24px;
+    font-size: clamp(22px, 2vw, 26px);
     line-height: 1;
+    font-weight: 900;
 }
 
-.domain-price > span {
+.domain-term {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 13px;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .tooltip {
@@ -465,13 +419,14 @@
 }
 
 .tooltip button {
-    width: 22px;
-    height: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    width: 18px;
+    height: 18px;
+    border: 1px solid currentColor;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
     color: #ffffff;
     cursor: help;
+    font-size: 12px;
     font-weight: 900;
 }
 
@@ -511,23 +466,21 @@
 }
 
 .favourite-button {
-    position: absolute;
-    top: 22px;
-    left: 22px;
-    width: 38px;
-    height: 38px;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
     display: grid;
     place-items: center;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
+    border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
     cursor: pointer;
 }
 
 .favourite-button svg {
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     fill: transparent;
     stroke: currentColor;
     stroke-width: 2;
@@ -544,15 +497,16 @@
 }
 
 .domain-action {
-    min-width: 150px;
-    min-height: 48px;
+    min-width: 122px;
+    min-height: 60px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     background: #ffffff;
     color: #132661;
     cursor: pointer;
-    padding: 0 18px;
+    padding: 0 19px;
     font: inherit;
+    font-size: 20px;
     font-weight: 900;
 }
 
@@ -1095,6 +1049,11 @@
     .domain-card,
     .primary-card {
         grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .domain-buy-row {
+        justify-content: space-between;
     }
 }
 
@@ -1116,7 +1075,6 @@
         border-bottom: 0;
     }
 
-    .tool-top,
     .section-heading {
         align-items: flex-start;
         flex-direction: column;
@@ -1142,7 +1100,28 @@
 
     .domain-card,
     .primary-card {
-        padding: 72px 16px 18px;
+        padding: 18px 16px;
+    }
+
+    .domain-name-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .domain-buy-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .domain-price {
+        align-items: flex-start;
+        min-width: 0;
+        text-align: left;
+    }
+
+    .domain-term {
+        justify-content: flex-start;
     }
 
     .domain-action {
